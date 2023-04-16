@@ -16,6 +16,9 @@ public class Program {
     private async Task MainAsync() {
         await _mainStart.StartAsync(_services);
 
+        // TODO: Find a best approach
+        Web.Program.Run();
+
         // Wait infinitely so the bot actually stays connected.
         await Task.Delay(Timeout.Infinite);
     }
