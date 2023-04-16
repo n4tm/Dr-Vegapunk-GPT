@@ -6,14 +6,24 @@ using DrVegapunk.GPT.Modules;
 
 namespace DrVegapunk.GPT.Commands;
 public class ChatGPTModule : OpenAIModule {
-    public ChatGPTModule(OpenAIHandler openAiHandler) : base(openAiHandler) { }
+
+    protected override string ReachedMaxAttemptsMsg => 
+        $"você atingiu o limite de uso diário de {BotConfig._.MaxUserAttemptsToChatGPT} " +
+        "usos da funcionalidade de geração de texto do Dr. Vegapunk. " +
+        "Tente novamente após 24 horas ou pague um adicional de " +
+        $"US${0.002 * BotConfig._.MaxUserAttemptsToChatGPT} para o Natan.";
+
+    public ChatGPTModule(OpenAIHandler openAiHandler) : base(
+        openAiHandler, 
+        BotConfig._.MaxUserAttemptsToChatGPT
+    ) { }
 
     [Command("say")]
     [Summary("Requests an answer from ChatGPT")]
     public async Task ReplyChatGPTOutput([Remainder] string input) {
-        if (!await IsInputValidAsync(input)) return;
-
         var msgRef = new MessageReference(Context.Message.Id);
+
+        if (!await IsInputValidAsync(input, msgRef)) return;
 
         if (BotConfig._.EnableGPTStreamOutput) {
             await HandleGPTStreamOutput(input, msgRef);

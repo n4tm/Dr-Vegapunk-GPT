@@ -12,4 +12,8 @@ public class BotConfig {
     public int IOMaxLength { get; set; } = 2048;
 
     public bool EnableGPTStreamOutput { get; set; }
+
+    public int MaxUserAttemptsToChatGPT { get; set; } = 32;
+
+    public int MaxUserAttemptsToDallE { get; set; } = 3;
 }
