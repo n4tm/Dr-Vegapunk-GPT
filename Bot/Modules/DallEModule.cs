@@ -1,9 +1,9 @@
 ﻿using Discord;
 using Discord.Commands;
-using DrVegapunk.GPT.App;
-using DrVegapunk.GPT.App.Managers;
+using DrVegapunk.Bot.App;
+using DrVegapunk.Bot.App.Managers;
 
-namespace DrVegapunk.GPT.Modules {
+namespace DrVegapunk.Bot.Modules {
     public class DallEModule : OpenAIModule {
         protected override string ReachedMaxAttemptsMsg =>
             $"você atingiu o limite de uso diário de {BotConfig._.MaxUserAttemptsToDallE} " +

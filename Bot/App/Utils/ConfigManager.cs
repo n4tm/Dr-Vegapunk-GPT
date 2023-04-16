@@ -1,7 +1,7 @@
 ﻿using System.Xml;
 using System.Xml.Serialization;
 
-namespace DrVegapunk.GPT.App.Utils;
+namespace DrVegapunk.Bot.App.Utils;
 
 public static class ConfigManager {
     public static T TryReadConfigFile<T>(string configFileName) {

@@ -1,9 +1,9 @@
 ﻿using Discord;
 using Discord.Commands;
-using DrVegapunk.GPT.App;
-using DrVegapunk.GPT.App.Managers;
+using DrVegapunk.Bot.App;
+using DrVegapunk.Bot.App.Managers;
 
-namespace DrVegapunk.GPT.Modules {
+namespace DrVegapunk.Bot.Modules {
     [Group("v")]
     public abstract class OpenAIModule : ModuleBase<SocketCommandContext> {
         private static readonly int _inputMaxLen = BotConfig._.IOMaxLength;

@@ -1,9 +1,9 @@
 ﻿using Discord.WebSocket;
-using DrVegapunk.GPT.App.Handlers;
-using DrVegapunk.GPT.App.Managers;
+using DrVegapunk.Bot.App.Handlers;
+using DrVegapunk.Bot.App.Managers;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DrVegapunk.GPT.App;
+namespace DrVegapunk.Bot.App;
 
 public static class ServiceInstaller {
     private static readonly DiscordSocketConfig _clientConfig = new() { 

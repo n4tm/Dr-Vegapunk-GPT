@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace DrVegapunk.GPT.App;
+namespace DrVegapunk.Bot.App;
 
 public class Program {
     private readonly IServiceProvider _services;

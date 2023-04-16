@@ -1,2 +1,2 @@
 # Dr-Vegapunk-GPT
-A simple discord bot using BetterGPT API
+A simple discord bot using OpenAI API (ChatGPT + DALL-E)

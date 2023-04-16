@@ -2,7 +2,7 @@
 using Discord.Commands;
 using Discord.WebSocket;
 
-namespace DrVegapunk.GPT.App.Utils;
+namespace DrVegapunk.Bot.App.Utils;
 
 public static class LogManager {
     public static void RegisterLog(CommandService commandSvc) =>

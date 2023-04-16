@@ -2,7 +2,7 @@
 using OpenAI_API.Chat;
 using OpenAI_API.Images;
 
-namespace DrVegapunk.GPT.App.Managers;
+namespace DrVegapunk.Bot.App.Managers;
 
 public class OpenAIHandler {
     private static readonly OpenAIAPI _api = new();

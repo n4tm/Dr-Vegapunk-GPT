@@ -1,9 +1,9 @@
 ﻿using Discord.Commands;
 using Discord.WebSocket;
-using DrVegapunk.GPT.App.Utils;
+using DrVegapunk.Bot.App.Utils;
 using System.Reflection;
 
-namespace DrVegapunk.GPT.App.Handlers;
+namespace DrVegapunk.Bot.App.Handlers;
 
 public class CommandHandler {
     private static readonly CommandServiceConfig _commandSvcConfig = new() { DefaultRunMode = RunMode.Async };

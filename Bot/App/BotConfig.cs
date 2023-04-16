@@ -1,6 +1,6 @@
-﻿using DrVegapunk.GPT.App.Utils;
+﻿using DrVegapunk.Bot.App.Utils;
 
-namespace DrVegapunk.GPT.App;
+namespace DrVegapunk.Bot.App;
 
 public class BotConfig {
     public static BotConfig _ = ConfigManager.TryReadConfigFile<BotConfig>("Bot");

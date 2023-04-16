@@ -1,10 +1,10 @@
 ﻿using Discord;
 using Discord.Commands;
-using DrVegapunk.GPT.App;
-using DrVegapunk.GPT.App.Managers;
-using DrVegapunk.GPT.Modules;
+using DrVegapunk.Bot.App;
+using DrVegapunk.Bot.App.Managers;
+using DrVegapunk.Bot.Modules;
 
-namespace DrVegapunk.GPT.Commands;
+namespace DrVegapunk.Bot.Commands;
 public class ChatGPTModule : OpenAIModule {
 
     protected override string ReachedMaxAttemptsMsg => 

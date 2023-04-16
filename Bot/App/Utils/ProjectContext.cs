@@ -1,4 +1,4 @@
-﻿namespace DrVegapunk.GPT.App.Utils;
+﻿namespace DrVegapunk.Bot.App.Utils;
 
 // Simple implementation
 public static class ProjectContext {

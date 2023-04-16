@@ -1,8 +1,8 @@
 ﻿using Discord;
 using Discord.WebSocket;
-using DrVegapunk.GPT.App.Handlers;
+using DrVegapunk.Bot.App.Handlers;
 
-namespace DrVegapunk.GPT.App;
+namespace DrVegapunk.Bot.App;
 
 public class MainStart {
     private readonly CommandHandler _commandHandler;
