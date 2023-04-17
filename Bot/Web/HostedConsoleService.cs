@@ -34,8 +34,6 @@ namespace DrVegapunk.Bot.Web {
             _logger.LogInformation("OnStarted has been called.");
 
             // Perform on-started activities here
-
-            Pinger();
         }
 
         private void OnStopping() {
@@ -48,17 +46,6 @@ namespace DrVegapunk.Bot.Web {
             _logger.LogInformation("OnStopped has been called.");
 
             // Perform post-stopped activities here
-        }
-
-        private async void Pinger() {
-            _logger.LogInformation("Pinger Function Started");
-
-            for (var i = 0; i < 100; i++) {
-                _logger.LogInformation("Ping number: {i}", i);
-                await Task.Delay(5000);
-            }
-
-            _logger.LogInformation("Pinger Function Finished");
         }
     }
 }
