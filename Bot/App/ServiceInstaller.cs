@@ -1,6 +1,7 @@
 ﻿using Discord.WebSocket;
 using DrVegapunk.Bot.App.Handlers;
 using DrVegapunk.Bot.App.Managers;
+using DrVegapunk.Bot.Web.Handlers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DrVegapunk.Bot.App;
@@ -19,6 +20,7 @@ public static class ServiceInstaller {
             .AddSingleton<DiscordSocketClient>(s => new(_clientConfig))
             .AddSingleton<CommandHandler>()
             .AddSingleton<OpenAIHandler>()
+            .AddSingleton<WebHostHandler>()
 
             // Should be the last one
             .AddSingleton<MainStart>()
