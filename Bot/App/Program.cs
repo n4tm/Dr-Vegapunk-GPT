@@ -1,21 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DrVegapunk.Bot.Web.Handlers;
+using Microsoft.Extensions.Hosting;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace DrVegapunk.Bot.App;
 
 public class Program {
-    private readonly IServiceProvider _services;
-    private readonly MainStart _mainStart;
-
-    public static Task Main(string[] args) => 
-        new Program().MainAsync(args);
-
-    private Program() {
-        _services = ServiceInstaller.InstallServices();
-        _mainStart = _services.GetRequiredService<MainStart>();
-    }
-
-    private async Task MainAsync(string[] args) {
-        await _mainStart.StartAsync(_services, args);
+    public async static Task Main(string[] args) {
+        await WebHostManager.CreateBuilder(args)
+                            .Build()
+                            .RunAsync();
 
         // Wait infinitely so the bot actually stays connected.
         await Task.Delay(Timeout.Infinite);

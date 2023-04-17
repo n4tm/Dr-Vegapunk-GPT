@@ -3,10 +3,10 @@ using Discord.Commands;
 using DrVegapunk.Bot.App;
 using DrVegapunk.Bot.App.Managers;
 using DrVegapunk.Bot.Modules;
+using System.Threading.Tasks;
 
 namespace DrVegapunk.Bot.Commands;
 public class ChatGPTModule : OpenAIModule {
-
     protected override string ReachedMaxAttemptsMsg => 
         $"você atingiu o limite de uso diário de {BotConfig._.MaxUserAttemptsToChatGPT} " +
         "usos da funcionalidade de geração de texto do Dr. Vegapunk. " +

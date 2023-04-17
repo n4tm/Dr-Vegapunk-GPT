@@ -5,7 +5,7 @@ namespace DrVegapunk.Bot.App.Utils;
 
 public static class ConfigManager {
     public static T TryReadConfigFile<T>(string configFileName) {
-        var configFileDir = $"{ProjectContext.ConfigDirPath}\\{configFileName}.config";
+        var configFileDir = @$"{ProjectContext.ConfigDirPath}/{configFileName}.config";
         XmlReader reader = XmlReader.Create(configFileDir);
         XmlSerializer serializer = new(typeof(T));
         object? deserializedConfig = serializer.Deserialize(reader);

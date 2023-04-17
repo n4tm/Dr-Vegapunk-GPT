@@ -1,4 +1,7 @@
-﻿namespace DrVegapunk.Bot.App.Utils;
+﻿using System;
+using System.IO;
+
+namespace DrVegapunk.Bot.App.Utils;
 
 // Simple implementation
 public static class ProjectContext {
@@ -7,9 +10,9 @@ public static class ProjectContext {
                     .Parent!.Parent!.Parent!
                     .FullName;
 
-    public static readonly string ConfigDirPath = $"{DirectoryPath}\\Config";
+    public static readonly string ConfigDirPath = @$"{DirectoryPath}/Config";
 
-    public static readonly string ChatActorsDirPath = $"{DirectoryPath}\\ChatActors";
+    public static readonly string ChatActorsDirPath = @$"{DirectoryPath}/ChatActors";
 
-    public static readonly string KnowledgesDirPath = $"{ChatActorsDirPath}\\Knowledges";
+    public static readonly string KnowledgesDirPath = @$"{ChatActorsDirPath}/Knowledges";
 }

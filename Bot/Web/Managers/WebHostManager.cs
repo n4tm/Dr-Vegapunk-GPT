@@ -1,7 +1,13 @@
-﻿namespace DrVegapunk.Bot.Web.Handlers;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System.IO;
 
-public class WebHostHandler {
-    public IHostBuilder CreateHostBuilder(string[] args) =>
+namespace DrVegapunk.Bot.Web.Handlers;
+
+public static class WebHostManager {
+    public static IHostBuilder CreateBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureHostConfiguration(configHost => {
                 configHost.SetBasePath(Directory.GetCurrentDirectory());

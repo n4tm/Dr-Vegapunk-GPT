@@ -1,6 +1,8 @@
 ﻿using OpenAI_API;
 using OpenAI_API.Chat;
 using OpenAI_API.Images;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DrVegapunk.Bot.App.Managers;
 

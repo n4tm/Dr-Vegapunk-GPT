@@ -2,6 +2,8 @@
 using Discord.Commands;
 using DrVegapunk.Bot.App;
 using DrVegapunk.Bot.App.Managers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DrVegapunk.Bot.Modules {
     [Group("v")]

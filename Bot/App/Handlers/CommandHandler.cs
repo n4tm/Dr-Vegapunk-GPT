@@ -1,7 +1,9 @@
 ﻿using Discord.Commands;
 using Discord.WebSocket;
 using DrVegapunk.Bot.App.Utils;
+using System;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace DrVegapunk.Bot.App.Handlers;
 

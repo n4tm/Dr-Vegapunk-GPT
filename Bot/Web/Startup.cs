@@ -1,4 +1,15 @@
-﻿namespace DrVegapunk.Bot.Web;
+﻿using Discord.WebSocket;
+using DrVegapunk.Bot.App;
+using DrVegapunk.Bot.App.Handlers;
+using DrVegapunk.Bot.App.Managers;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.Threading;
+
+namespace DrVegapunk.Bot.Web;
 
 public class Startup {
     public IConfiguration Configuration { get; }
@@ -8,8 +19,21 @@ public class Startup {
     }
 
     public void ConfigureServices(IServiceCollection services) {
-        services.AddControllersWithViews();
-        services.AddSingleton<HostedConsoleService>();
+        var clientConfig = new DiscordSocketConfig() {
+            GatewayIntents =
+                Discord.GatewayIntents.MessageContent |
+                Discord.GatewayIntents.Guilds |
+                Discord.GatewayIntents.GuildMessages |
+                Discord.GatewayIntents.GuildMessageTyping
+        };
+
+        services.AddSingleton<DiscordSocketClient>(s => new(clientConfig))
+                .AddSingleton<CommandHandler>()
+                .AddSingleton<OpenAIHandler>()
+                .AddSingleton<BotStarter>()
+                .AddSingleton<HostedConsoleService>()
+
+                .AddControllersWithViews();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {

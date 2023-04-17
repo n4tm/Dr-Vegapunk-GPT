@@ -1,21 +1,30 @@
-﻿namespace DrVegapunk.Bot.Web {
+﻿using DrVegapunk.Bot.App;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace DrVegapunk.Bot.Web {
     public class HostedConsoleService : IHostedService {
         private readonly ILogger _logger;
         private readonly IHostApplicationLifetime _appLifetime;
+        private readonly BotStarter _botStarter;
 
         public HostedConsoleService(
             ILogger<HostedConsoleService> logger,
-            IHostApplicationLifetime appLifetime) {
+            IHostApplicationLifetime appLifetime,
+            BotStarter botStarter) {
             _logger = logger;
             _appLifetime = appLifetime;
+            _botStarter = botStarter;
         }
 
-        public Task StartAsync(CancellationToken cancellationToken) {
+        public async Task StartAsync(CancellationToken cancellationToken) {
             _appLifetime.ApplicationStarted.Register(OnStarted);
             _appLifetime.ApplicationStopping.Register(OnStopping);
             _appLifetime.ApplicationStopped.Register(OnStopped);
 
-            return Task.CompletedTask;
+            await _botStarter.StartAsync();
         }
 
         public Task StopAsync(CancellationToken cancellationToken) =>
