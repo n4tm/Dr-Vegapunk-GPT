@@ -20,6 +20,9 @@ namespace DrVegapunk.Bot.Modules {
             _defaultMaxAttempts = defaultMaxAttempts;
         }
 
+		public void ResetAttempts() =>
+			_userAttemptsById.Clear();
+
         protected static string GetIOMaxLenInfo(bool isInput = false) =>
             $"Se você deseja {(isInput ? "me perguntar" : "que eu responda")} " +
             $"algo com mais de {_inputMaxLen} caracteres, paga a mensalidade " +

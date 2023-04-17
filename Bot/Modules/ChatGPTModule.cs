@@ -5,7 +5,8 @@ using DrVegapunk.Bot.App.Managers;
 using DrVegapunk.Bot.Modules;
 using System.Threading.Tasks;
 
-namespace DrVegapunk.Bot.Commands;
+namespace DrVegapunk.Bot.Modules;
+
 public class ChatGPTModule : OpenAIModule {
     protected override string ReachedMaxAttemptsMsg => 
         $"você atingiu o limite de uso diário de {BotConfig._.MaxUserAttemptsToChatGPT} " +

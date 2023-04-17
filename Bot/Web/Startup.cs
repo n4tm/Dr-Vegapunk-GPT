@@ -1,5 +1,6 @@
 ﻿using Discord.WebSocket;
 using DrVegapunk.Bot.App;
+using DrVegapunk.Bot.Modules;
 using DrVegapunk.Bot.App.Handlers;
 using DrVegapunk.Bot.App.Managers;
 using Microsoft.AspNetCore.Builder;
@@ -11,15 +12,19 @@ using System.Threading;
 
 namespace DrVegapunk.Bot.Web;
 
-public class Startup {
+public class Startup
+{
     public IConfiguration Configuration { get; }
 
-    public Startup(IConfiguration config) {
+    public Startup(IConfiguration config)
+    {
         Configuration = config;
     }
 
-    public void ConfigureServices(IServiceCollection services) {
-        var clientConfig = new DiscordSocketConfig() {
+    public void ConfigureServices(IServiceCollection services)
+    {
+        var clientConfig = new DiscordSocketConfig()
+        {
             GatewayIntents =
                 Discord.GatewayIntents.MessageContent |
                 Discord.GatewayIntents.Guilds |
@@ -33,11 +38,16 @@ public class Startup {
                 .AddSingleton<BotStarter>()
                 .AddSingleton<HostedConsoleService>()
 
+.AddSingleton<ChatGPTModule>()
+
+.AddSingleton<DallEModule>()
                 .AddControllersWithViews();
     }
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-        if (env.IsDevelopment()) {
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
             app.UseDeveloperExceptionPage();
         }
 
